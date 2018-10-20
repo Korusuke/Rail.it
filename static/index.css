@@ -1,0 +1,25 @@
+body{
+    background-color: #243447;
+    overflow-x: hidden;
+}
+
+
+#cc{
+    position: fixed;
+    bottom: 0vw;
+    left: 0vw;
+    width:75vw;
+}
+
+#tt{
+    position: fixed;
+    top: 0vw;
+    left: 0vw;
+}
+
+#sim-env{
+   
+    position: absolute;
+    right: 2vw;
+    top:2vw;
+}
