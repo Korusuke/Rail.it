@@ -13,7 +13,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
     
     <script src="{{ url_for('static', filename='map.js') }}"></script>
-    <script src="{{ url_for('static', filename='fmap.js') }}"></script>
     <script src="{{ url_for('static', filename='train.js') }}"></script>
     <script src="{{ url_for('static', filename='index.js') }}"></script>
 
@@ -39,15 +38,21 @@
     </div>
 
 	<div id="cc" class="row" >
-        <div class="col s12 m4">
-            <div class="card blue-grey darken-1">
+            <div class="card blue-grey darken-1" style="height: 100%;">
 
-            <div class="card-content white-text">
-                    <a class="btn-floating btn-large waves-effect waves-light red" onclick="mock_data()"><i class="material-icons">add</i></a>
-                    <button onclick="mock_data()">Play</button> 
+            <div class="card-content white-text" style="height: 100%;">
+                <div class="containeer" onclick="toggle_sim()">
+                
+                <div class="btn play" style="height: 40px;">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>				
+                </div>
+                
+                </div> 
             </div>
+            <input type="range" min="1" max="100" value="0" step="10" onchange="showValue(this.value)" oninput="showValue(this.value)"/>
+            <span id="range">0</span>
 
-            </div>
         </div>
     </div>
 
