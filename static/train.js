@@ -34,6 +34,7 @@ function add_train(start,dest,type){
     tr = new Train(start,dest,type);
     Trains.push(tr);
     M.toast({html:"Train Started from "+Stations[start][0]+" to "+Stations[dest][0],classes:'green'});
+    info();
 }
 
 function mock_data(){
@@ -100,20 +101,23 @@ class Train {
         if(this.stop>0){
             this.stop = this.stop-1;
         }else{
-            if (this.dir < 0){
-                if(this.y > (scry - Stations[this.dest][1]*35))
+            if (this.dir < 0){ //direction
+                if(this.y > (scry - Stations[this.dest][1]*35)) //Bounds
                 {   
-                    if(this.type == 1 || this.type == 4){
+                    if(this.type == 1 || this.type == 4){ //Type of Train S F
                         this.y = this.y + this.dir;
                         for(var i=0;i<Stations.length;i++)
                         {
                             //console.log(scry - Stations[i][1]*35+35,this.y,scry - Stations[i][1]*35-35);
                             if(scry - Stations[i][1]*35+1 > this.y && this.y > scry - Stations[i][1]*35-1 && Stations[i][3]==2)
-                            {
+                            {   // check if on station
                                 //console.log("STOP");
                                 //M.toast({html:"Train reached "+Stations[i][0]});
-                                this.y = this.y + 2; q
-                                this.stop = 5;
+                                this.y = scry - Stations[i][1]*35 - 1;
+                                if(i!=this.start){
+                                    this.stop = 25;
+                                    break;
+                                }                                
                             }
                         }
                     }else {
@@ -125,8 +129,11 @@ class Train {
                             {
                                 //console.log("STOP");
                                 //M.toast({html:"Train reached "+Stations[i][0]});
-                                this.y = this.y + 2;
-                                this.stop = 5;
+                                this.y = scry - Stations[i][1]*35 - 1;
+                                if(i!=this.start){
+                                    this.stop = 25;
+                                    break;
+                                }
                             }
                         }
                     }
@@ -147,8 +154,11 @@ class Train {
                             {
                                 //console.log("STOP");
                                 //M.toast({html:"Train reached "+Stations[i][0]});
-                                this.y = this.y + 2;
-                                this.stop = 5;
+                                this.y = scry - Stations[i][1]*35 + 1;
+                                if(i!=this.start){
+                                    this.stop = 25;
+                                    break;
+                                }
                             }
                         }
                     }else{
@@ -160,8 +170,11 @@ class Train {
                             {
                                 //console.log("STOP");
                                 //M.toast({html:"Train reached "+Stations[i][0]});
-                                this.y = this.y + 2;
-                                this.stop = 5;
+                                this.y = scry - Stations[i][1]*35 + 1;
+                                if(i!=this.start){
+                                    this.stop = 25;
+                                    break;
+                                }                             
                             }
                         }
                     }
@@ -169,6 +182,7 @@ class Train {
                 else{
                     M.toast({html:"Train reached Destination:"+Stations[this.dest][0],classes:'red'});
                     Trains = arrayRemove(Trains, this);
+                    info();
                 }            
             }
         }
@@ -183,6 +197,19 @@ function change_info(edit_train){
     console.log("div added");
 }
 
+function info(){
+    var upcount = 0,downcount = 0;    
+    for(var i =0;i<Trains.length;i++){
+        if (Trains[i].type == 1 || Trains[i].type == 4){
+            upcount++;
+        } 
+        if (Trains[i].type == 2 || Trains[i].type == 3){
+            downcount++;
+        } 
+    }    
+    document.getElementById("uptrain").innerHTML = "Up :" + upcount;
+    document.getElementById("downtrain").innerHTML = "Down :" + downcount;
+}
 function arrayRemove(arr, value) {
 
     return arr.filter(function(ele){
