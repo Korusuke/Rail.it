@@ -37,8 +37,8 @@
 
 <br>
 
-<img src="./Bot1.png" width=350px>
-<img src="./Bot2.png" width=350px>
+<img src="./Bot1.jpeg" width=350px>
+<img src="./Bot2.jpeg" width=350px>
 
 
 ------------------------------------------
