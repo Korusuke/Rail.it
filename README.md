@@ -27,6 +27,18 @@
 - `Optimal Time Table Generation` to minimize crowding in each train and maximize utilization 
 
 
+------------------------------------------
+<br>
+<img src="./Sim.gif" width=700px>
+
+<br>
+
+<img src="./Optimize.png" width=700px><br>
+
+<br>
+
+<img src="./Bot1.png" width=350px>
+<img src="./Bot2.png" width=350px>
 
 
 ------------------------------------------
