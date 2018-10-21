@@ -6,6 +6,7 @@
 
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![made-with-p5](https://img.shields.io/badge/Made%20With-p5-pink.svg)](https://p5js.org/)
 <br>
 
 
@@ -28,6 +29,7 @@
 
 
 ------------------------------------------
+<div align="center">
 <br>
 <img src="./Sim.gif" width=700px>
 
@@ -39,14 +41,14 @@
 
 <img src="./Bot1.jpeg" width=350px>
 <img src="./Bot2.jpeg" width=350px>
-
-
+</div>
 ------------------------------------------
 
 ### Add-Ons
 
 - [ ] Chatbot for the users to know the live location of any train and to notify them about any delays which may be there. 
 - [ ] Add More
+
 
 
 
